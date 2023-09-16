@@ -20,9 +20,9 @@ def index():
 def webhook(body:dict,req: Request):
     value = None
 
-    if req and "body" in req and "entry" in req["body"] and len(req["body"]["entry"]) > 0 \
-        and "changes" in req["body"]["entry"][0] and len(req["body"]["entry"][0]["changes"]) > 0:
-        value = req["body"]["entry"][0]["changes"][0].get("value")
+    if req and "body" in req and "entry" in body and len(body["entry"]) > 0 \
+        and "changes" in body["entry"][0] and len(body["entry"][0]["changes"]) > 0:
+        value = body["entry"][0]["changes"][0].get("value")
 
     if value.get('messages'):
         if value and "messages" in value and len(value["messages"]) > 0:
