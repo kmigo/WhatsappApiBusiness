@@ -7,7 +7,7 @@ class WPService:
         self.url = f"{os.getenv('WP_URL')}/${os.environ.get('WP_ID')}"
         self.headers = {
             'Content-Type': 'application/json',
-            'Authorization': f'Bearer ${os.environ.get("WP_TOKEN")}'
+            'Authorization': os.environ.get("WP_TOKEN")
         }
 
     def send_message(self, data,id):
