@@ -1,0 +1,24 @@
+import requests
+import os
+
+
+class WPService:
+    def __init__(self):
+        self.url = f"{os.getenv('WP_URL')}/${os.environ.get('WP_ID')}"
+        self.headers = {
+            'Content-Type': 'application/json',
+            'Authorization': f'Bearer ${os.environ.get("WP_TOKEN")}'
+        }
+
+    def send_message(self, data,id):
+        return requests.post(f"{self.url}/messages", {
+            'messaging_product': 'whatsapp',
+            'to': data['to'],
+            'context':{
+                'message_id':id
+            },
+            'type': 'text',
+            'text': {
+                'body': data['message']
+            }
+        }, headers=self.headers)
