@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI,Request
 from fastapi.middleware.cors import CORSMiddleware
 
 
@@ -14,6 +14,6 @@ app.add_middleware(
 def index():
     return {'message': 'Hello World'}
 
-@app.post('/webhook')
-def webhook(body:dict):
-    return body['hub.challenge']
+@app.ger('/webhook')
+def webhook(req: Request):
+    return req.query_params['hub.challenge']
