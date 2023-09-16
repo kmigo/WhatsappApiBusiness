@@ -14,6 +14,6 @@ app.add_middleware(
 def index():
     return {'message': 'Hello World'}
 
-@app.ger('/webhook')
+@app.get('/webhook')
 def webhook(req: Request):
     return req.query_params['hub.challenge']
