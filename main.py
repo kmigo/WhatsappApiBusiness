@@ -16,4 +16,4 @@ def index():
 
 @app.get('/webhook')
 def webhook(req: Request):
-    return req.query_params['hub.challenge']
+    return int(req.query_params['hub.challenge'])
