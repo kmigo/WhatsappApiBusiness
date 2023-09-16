@@ -45,10 +45,11 @@ def webhook(body:dict,req: Request):
     changes = entry.get('changes',[])
     if len(changes) > 0:
         changes = changes[0]
-    print(messages)
+    
     messages = changes.get('messages',[])
     if len(messages) > 0:
         messages = messages[0]
+    print(messages)
     from_ = messages.get('from',None)
     message_id = messages.get('id',None)
     message = messages.get('text',{}).get('body',None)
