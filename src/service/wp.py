@@ -23,4 +23,5 @@ class WPService:
                 'body': data['message']
             }
         }, headers=self.headers)
+        print(response.headers)
         print(json.dumps(response.json(),indent=4))
