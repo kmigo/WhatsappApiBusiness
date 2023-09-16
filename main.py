@@ -44,7 +44,7 @@ def webhook(body:dict,req: Request):
     changes = entry.get('changes',[])
     if len(changes) > 0:
         changes = changes[0]
-
+    print(json.dumps(changes,indent=4))
     messages = entry.get('value',{}).get('messages',[])
     if len(messages) > 0:
         messages = messages[0]
