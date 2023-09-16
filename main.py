@@ -10,6 +10,9 @@ app.add_middleware(
     allow_headers=['*'],
 )
 
+@app.get('/')
+def index():
+    return {'message': 'Hello World'}
 
 @app.post('/webhook')
 def webhook(body:dict):
