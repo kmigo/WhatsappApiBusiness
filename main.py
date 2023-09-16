@@ -46,15 +46,15 @@ def webhook(body:dict,req: Request):
     if len(changes) > 0:
         changes = changes[0]
     
-    messages = changes.get('messages',[])
+    messages = entry.get('messages',[])
     if len(messages) > 0:
         messages = messages[0]
-    print(messages)
-    from_ = messages.get('from',None)
-    message_id = messages.get('id',None)
-    message = messages.get('text',{}).get('body',None)
-    type_ = messages.get('type',None)
-    print(from_,message_id,message,type,id)
+
+        from_ = messages.get('from',None)
+        message_id = messages.get('id',None)
+        message = messages.get('text',{}).get('body',None)
+        type_ = messages.get('type',None)
+        print(from_,message_id,message,type_,id)
     
  
 
