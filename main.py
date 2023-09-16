@@ -36,8 +36,7 @@ def index():
 
 @app.post('/webhook')
 def webhook(body:dict,req: Request):
-    print(body)
-    print(type(body))
+    import json
     entry = body.get('entry',[])
     if len(entry) > 0:
         entry = entry[0]
@@ -45,7 +44,7 @@ def webhook(body:dict,req: Request):
     changes = entry.get('changes',[])
     if len(changes) > 0:
         changes = changes[0]
-    
+    print(json.dumps(changes,indent=4))
     messages = entry.get('messages',[])
     if len(messages) > 0:
         messages = messages[0]
