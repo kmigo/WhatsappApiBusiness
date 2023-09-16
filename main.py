@@ -53,7 +53,7 @@ def webhook(body:dict,req: Request):
         message_id = messages.get('id',None)
         message = messages.get('text',{}).get('body',None)
         type_ = messages.get('type',None)
-        print(from_,message_id,message,type_,id)
+        WPService().send_message({'to':from_,'message':'foi'},id)
     
  
 
