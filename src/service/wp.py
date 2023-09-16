@@ -11,7 +11,8 @@ class WPService:
         }
 
     def send_message(self, data,id):
-        return requests.post(f"{self.url}/messages", {
+        import json
+        response = requests.post(f"{self.url}/messages", {
             'messaging_product': 'whatsapp',
             'to': data['to'],
             'context':{
@@ -22,3 +23,4 @@ class WPService:
                 'body': data['message']
             }
         }, headers=self.headers)
+        print(json.dumps(response.json(),indent=4))
