@@ -18,8 +18,8 @@ def index():
 
 @app.post('/webhook')
 def webhook(body:dict,req: Request):
-    value = None
-
+    value = {}
+    print(body)
     if req and "body" in req and "entry" in body and len(body["entry"]) > 0 \
         and "changes" in body["entry"][0] and len(body["entry"][0]["changes"]) > 0:
         value = body["entry"][0]["changes"][0].get("value")
